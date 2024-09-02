@@ -23,7 +23,7 @@
                                 <span class="txt-color-tertiary me-2">Welcome, </span><span class="txt-color-primary">@ViewData["User"]</span>
                                 <i class="bi bi-chevron-down ms-1 bold-chevron txt-color-primary"></i>
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="#">Profile</a></li>
                                 <li><a class="dropdown-item" href="#">Settings</a></li>
                                 <li><a class="dropdown-item" href="#">Logout</a></li>
@@ -31,12 +31,11 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav">
-                        <li class="nav-item ">
+                        <li class="nav-item">
                              <a class="nav-link btn-orange-fill d-flex align-items-center px-2 px-md-3" asp-area="" asp-page="/Dashboard">
-                                <img src="~/images/icons/home.svg" alt="Logo" height="17" width="20" class="me-md-1"/>
-                                <span class="fs-5 ms-2 txt-color-primary-alt d-none d-md-inline">Dashboard</span>
+                                <img src="~/images/icons/home-white.svg" alt="Logo" height="20" width="23" class="me-md-1"/>
+                                <span class="fs-5 ms-2 mt-1 txt-color-primary-alt d-none d-md-inline">Dashboard</span>
                             </a>
-                        </li>
                         </li>
                     </ul>
                 </div>
@@ -47,12 +46,12 @@
                 <!-- Messages dropdown button -->
                 <ul class="navbar-nav me-3">
                     <li class="nav-item dropdown">
-                        <a class="fs-5 nav-link text-dark d-flex align-items-center btn-orange py-2 px-2 px-md-3 py-md-2" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="fs-5 nav-link text-dark d-flex align-items-center btn-orange py-2 px-2 px-md-3 py-md-2" href="#" id="navbarDropdownMenuLink2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="~/images/icons/mail.svg" alt="Logo" class="d-inline-block align-top me-2 color-primary" />
                             <span class="txt-color-primary me-2">Messages</span>
                             <i class="bi bi-chevron-down ms-1 bold-chevron txt-color-primary"></i>
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink2">
                             <li><a class="dropdown-item" href="#">All</a></li>
                             <li><a class="dropdown-item" href="#">Archive</a></li>
                         </ul>
@@ -75,38 +74,77 @@
                             <ul class="navbar-nav me-3">
                                 <li class="nav-item">
                                     <a class="fs-5 nav-link text-dark d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <span class="fs-6 txt-color-primary">Dashboard</span>
+                                        <img src="~/images/icons/users.svg" alt="Contacts"  height="21" width="24" class="icon me-3" />
+                                        <span class="fs-4 fw-light txt-color-primary">Contacts</span>
                                     </a>
                                 </li>
-                            </ul>
-                            <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link d-flex flex-column align-items-center px-2 px-md-3" asp-area="" asp-page="/Dashboard">
-                                        <span class="fs-6 txt-color-primary">Dashboard</span>
+                                    <a class="fs-5 nav-link text-dark d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img src="~/images/icons/key.svg" alt="Keywords"  height="21" width="24" class="icon me-3" />
+                                        <span class="fs-4 fw-light txt-color-primary">Keywords</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="fs-5 nav-link text-dark d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img src="~/images/icons/bell.svg" alt="Notifications"  height="21" width="24" class="icon me-3" />
+                                        <span class="fs-4 fw-light txt-color-primary">Notifications</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="fs-5 nav-link text-dark d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img src="~/images/icons/bar-chart.svg" alt="Reports"  height="21" width="24" class="icon me-3" />
+                                        <span class="fs-4 fw-light txt-color-primary">Reports</span>
                                     </a>
                                 </li>
                             </ul>
+   
                         </div>
                     </div>
                 </div>
 
                 <!-- Navbar content for larger screens -->
                 <div class="collapse navbar-collapse justify-content-end d-none d-sm-flex" id="navbarNavDropdown">
-                    <ul class="navbar-nav me-3">
-                        <li class="nav-item">
-                            <a class="fs-5 nav-link text-dark d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <span class="txt-color-tertiary me-2">Welcome, </span><span class="txt-color-primary">@ViewData["User"]</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link btn-orange d-flex flex-column align-items-center px-2 px-md-3" asp-area="" asp-page="/Dashboard">
-                                <img src="~/images/icons/home.svg" alt="Logo" height="20" width="20" class="me-md-1 mb-1 color-primary"/>
-                                <span class="fs-6 txt-color-primary">Dashboard</span> <!-- Ensure text is always visible -->
-                            </a>
-                        </li>
-                    </ul>
+                    <div class="navbar-nav d-flex flex-row">
+                        <a class="nav-link box btn-orange d-flex flex-column align-items-center px-2 px-md-3 me-2 text-center txt-color-primary" asp-area="" asp-page="/Dashboard">
+                            <img src="~/images/icons/users.svg" alt="Contacts" class="icon" />
+                            <span class="txt-color-primary">Contacts</span>
+                        </a>
+                        
+                        <a class="nav-link box btn-orange d-flex flex-column align-items-center px-2 px-md-3 me-2 text-center" href="#">
+                            <img src="~/images/icons/key.svg" alt="Keywords" class="icon" />
+                            <span class="txt-color-primary">Keywords</span>
+                        </a>
+                        
+                        <a class="nav-link box btn-orange d-flex flex-column align-items-center px-2 px-md-3 me-2 text-center" href="#">
+                            <img src="~/images/icons/bell.svg" alt="Notifications" class="icon" />
+                            <span class="txt-color-primary">Notifications</span>
+                        </a>
+                        
+                        <a class="nav-link box btn-orange d-flex flex-column align-items-center px-2 px-md-3 me-2 text-center" href="#">
+                            <img src="~/images/icons/bar-chart.svg" alt="Reports" class="icon" />
+                            <span class="txt-color-primary">Reports</span>
+                        </a>
+
+                        <a class="nav-link box btn-orange d-flex flex-column align-items-center px-2 px-md-3 me-2 text-center" href="#">
+                            <img src="~/images/icons/list.svg" alt="Pollster" class="icon" />
+                            <span class="txt-color-primary">Pollster</span>
+                        </a>
+                        
+                        <a class="nav-link box btn-orange d-flex flex-column align-items-center px-2 px-md-3 me-2 text-center" href="#">
+                            <img src="~/images/icons/calendar.svg" alt="Scheduler" class="icon" />
+                            <span class="txt-color-primary">Scheduler</span>
+                        </a>
+                        
+                        <a class="nav-link box btn-orange d-flex flex-column align-items-center px-2 px-md-3 me-2 text-center" href="#">
+                            <img src="~/images/icons/settings.svg" alt="Settings" class="icon" />
+                            <span class="txt-color-primary">Settings</span>
+                        </a>
+
+                        <a class="nav-link box btn-orange d-flex flex-column align-items-center px-2 px-md-3 me-2 text-center" href="#">
+                            <img src="~/images/icons/grid.svg" alt="Others" class="icon" />
+                            <span class="txt-color-primary">Others</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </nav>
