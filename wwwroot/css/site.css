@@ -2,14 +2,42 @@ html {
   font-size: 14px;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+/* Default logo size */
+.logo-responsive {
+  height: 65px;
+  /* Default size for larger screens */
 }
+
+.dashboard-responsive {
+  padding: 1.5rem, 1.2rem;
+}
+
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+
+body {
+  font-family: "Microsoft Sans Serif", sans-serif;
+}
+
+/* Optionally, ensure all text elements inherit the font */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+li,
+span,
+div,
+button,
+input,
+textarea {
+  font-family: inherit;
 }
 
 html {
@@ -19,4 +47,23 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+/* Responsive size adjustments for smaller screens */
+@media (max-width: 768px) {
+
+  /* Tablets and below */
+  .logo-responsive {
+    height: 50px;
+    /* Smaller size for tablets */
+  } 
+}
+
+@media (max-width: 576px) {
+  
+  /* Phones and below */
+  .logo-responsive {
+    height: 40px;
+    /* Even smaller size for phones */
+  }
 }
