@@ -1,0 +1,92 @@
+﻿@page
+@model ComposeModel
+@{
+    ViewData["Title"] = "Home page";
+    ViewData["User"] = "Admin";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <nav class="col-md-3 d-none d-md-block sidebar p-0">
+            <div class="d-flex flex-column">
+                <a class="btn-orange btn-block mb-3 px-4 py-2 d-flex flex-row align-items-center" href="#">
+                    <img src="~/images/icons/dept.svg" alt="Logo" height="15" width="18" class="me-md-1"/>
+                    <span class="fs-5 txt-color-primary d-none d-md-inline ms-2">Department</span>
+                    <i class="ms-auto bi bi-chevron-down ms-1 bold-chevron txt-color-primary"></i>
+                </a>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link py-2 options active custom-active d-flex align-items-center" href="/Compose">
+                            <i class="bi bi-pencil-square me-2"></i> Compose
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link py-2 options d-flex align-items-center" href="/Inbox">
+                            <i class="bi bi-envelope me-2"></i> Inbox
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link py-2 options d-flex align-items-center" href="#">
+                            <i class="bi bi-arrow-right-circle me-2"></i> Sent
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link py-2 options d-flex align-items-center" href="#">
+                            <i class="bi bi-arrow-up-circle me-2"></i> Outbox
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="col-md-4 ms-sm-auto col-lg-9 px-md-4 message-compose">
+            <div class="pb-3 mb-4 border-bottom">
+                <h1 class="h4 fw-normal">COMPOSE</h1>
+            </div>
+
+            <form class="border px-5 py-5">
+                <div class="mb-3">
+                    <label for="to" class="form-label">To</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Recipient" value="Ethan Patel, Liam Garcia, Sophia Kim" readonly>
+                        <button class="btn btn-outline-secondary" type="button">Groups</button>
+                        <button class="btn btn-orange" type="button">Contacts</button>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="subject" class="form-label">Subject/Title</label>
+                    <input type="text" class="form-control" id="subject" value="Time Tracker Issue">
+                </div>
+
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message*</label>
+                    <textarea class="form-control" id="message" rows="4">Just wanted to give you a heads up about a small hiccup I encountered with the time tracker...</textarea>
+                </div>
+
+                <div class="d-flex align-items-center mb-3">
+                    <button type="button" class="btn btn-link text-decoration-none">
+                        <i class="bi bi-paperclip"></i> Attach Files
+                    </button>
+                    <button type="button" class="btn btn-link text-decoration-none">
+                        <i class="bi bi-mic"></i> Voice-to-Text
+                    </button>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="scheduleSending" checked>
+                        <label class="form-check-label" for="scheduleSending">
+                            Schedule Sending
+                        </label>
+                    </div>
+                    <button type="button" class="btn btn-orange">
+                        Send <i class="bi bi-chevron-up"></i>
+                    </button>
+                </div>
+            </form>
+        </main>
+    </div>
+</div>
