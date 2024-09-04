@@ -90,3 +90,46 @@
     width: 50% !important; /* Set the width to 50% */
     max-width: 300px; /* Optionally, set a max-width */
 }
+
+.offcanvas.offcanvas-bottom {
+    height: auto; /* Set height to auto to fit content */
+    max-height: 50vh; /* Optionally, limit the max height to 50% of the viewport height */
+}
+
+.navbar-toggler.custom-toggler {
+    outline: none !important; /* Remove focus outline */
+    box-shadow: none !important; /* Remove any default box shadow */
+    border: none; /* Remove border */
+    background-color: transparent; /* Ensure background is transparent if needed */
+}
+
+.navbar-toggler.custom-toggler:focus,
+.navbar-toggler.custom-toggler:active {
+    outline: none !important; /* Remove focus outline */
+    box-shadow: none !important; /* Remove focus box shadow */
+    border: none; /* Remove border on focus */
+}
+
+.sidebar .options {
+    background-color: #FF54000D;
+    border-top: 1px solid #FF540040;
+    color: #FF5400;
+}
+
+.custom-active {
+    background-color: #FF5400 !important; /* Background color for the active state */
+    color: white !important; /* Text color */
+}
+
+.custom-active:hover {
+    background-color: #e04900 !important; /* Slightly darker color on hover */
+    color: white !important; /* Ensure text remains white on hover */
+}
+
+.nav-link {
+    color: #333; /* Default color for non-active links */
+}
+
+.nav-link:hover {
+    color: #FF5400; /* Hover color for non-active links */
+}

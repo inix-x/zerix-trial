@@ -13,12 +13,13 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">
+                <a class="navbar-brand" asp-area="" asp-page="/Compose">
                     <img src="~/images/logo.png" alt="Logo" class="d-inline-block align-top logo-responsive" />
                 </a>
                 <div class="d-flex justify-content-end align-items-center" id="navbarNavDropdown">
                     <ul class="navbar-nav me-3">
-                        <li class="nav-item dropdown">
+                        <!-- Dropdown for desktop view User-->
+                        <li class="nav-item dropdown d-none d-sm-block"> <!-- Only visible on desktop -->
                             <a class="fs-5 nav-link text-dark d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span class="txt-color-tertiary me-2">Welcome, </span><span class="txt-color-primary">@ViewData["User"]</span>
                                 <i class="bi bi-chevron-down ms-1 bold-chevron txt-color-primary"></i>
@@ -28,6 +29,14 @@
                                 <li><a class="dropdown-item" href="#">Settings</a></li>
                                 <li><a class="dropdown-item" href="#">Logout</a></li>
                             </ul>
+                        </li>
+
+                        <!-- Offcanvas trigger for mobile view User-->
+                        <li class="nav-item d-block d-sm-none">
+                            <a class="fs-5 nav-link text-dark d-flex align-items-center" href="#" id="navbarDropdownOffcanvasToggle" role="button" data-bs-toggle="offcanvas" data-bs-target="#UseroffcanvasDropdown" aria-controls="offcanvasDropdown" aria-expanded="false">
+                                <span class="txt-color-tertiary me-2">Welcome, </span><span class="txt-color-primary">@ViewData["User"]</span>
+                                <i class="bi bi-chevron-down ms-1 bold-chevron txt-color-primary"></i>
+                            </a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
@@ -41,11 +50,20 @@
                 </div>
             </div>
         </nav>
+
+        <!-- Off-canvas sidebar for dropdown menu in mobile view User-->
+        <div class="offcanvas offcanvas-bottom" tabindex="-1" id="UseroffcanvasDropdown" aria-labelledby="offcanvasDropdownLabel">
+            <div class="offcanvas-body">
+                <ul class="navbar-nav">
+                    <li><a class="nav-link txt-color-secondary" href="#">Profile</a></li>
+                </ul>
+            </div>
+        </div>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow pb-4">
             <div class="container">
                 <!-- Messages dropdown button -->
                 <ul class="navbar-nav me-3">
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown d-none d-sm-block">
                         <a class="fs-5 nav-link text-dark d-flex align-items-center btn-orange py-2 px-2 px-md-3 py-md-2" href="#" id="navbarDropdownMenuLink2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="~/images/icons/mail.svg" alt="Logo" class="d-inline-block align-top me-2 color-primary" />
                             <span class="txt-color-primary me-2">Messages</span>
@@ -56,51 +74,97 @@
                             <li><a class="dropdown-item" href="#">Archive</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item d-block d-sm-none">
+                        <a class="fs-5 nav-link text-dark d-flex align-items-center btn-orange py-2 px-2 px-md-3 py-md-2" href="#" id="navbarDropdownOffcanvasToggle" role="button" data-bs-toggle="offcanvas" data-bs-target="#MessageoffcanvasDropdown" aria-controls="offcanvasDropdown" aria-expanded="false">
+                            <img src="~/images/icons/mail.svg" alt="Logo" class="d-inline-block align-top me-2 color-primary" />
+                            <span class="txt-color-primary me-2">Messages</span>
+                            <i class="bi bi-chevron-down ms-1 bold-chevron txt-color-primary"></i>
+                        </a>
+                    </li>
                 </ul>
 
-                <!-- Off-canvas toggle button for mobile -->
-                <button class="navbar-toggler d-block d-sm-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <!-- Off-canvas toggle button for mobile dashboard -->
+                <button class="navbar-toggler custom-toggler d-block d-sm-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#DashboardoffcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF5400" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+                        <line x1="6" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="9" y1="18" x2="21" y2="18"></line>
+                    </svg>
                 </button>
+                
 
-                <!-- Off-canvas sidebar for mobile view -->
-                <div class="offcanvas offcanvas-end d-block d-sm-none offcanvas-half-width border border-end-0 rounded-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <!-- Off-canvas sidebar for mobile view dashboard -->
+                <div class="offcanvas offcanvas-end d-block d-sm-none offcanvas-half-width border border-end-0 rounded-start d-flex flex-column" tabindex="-1" id="DashboardoffcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
                         <h5 class="mt-4 offcanvas-title fw-bold fs-1" id="offcanvasNavbarLabel">Dashboard</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <hr>
                     <div class="offcanvas-body">
+                        <!-- Main navigation links -->
                         <div class="d-flex flex-column align-items-start">
                             <ul class="navbar-nav me-3">
+                                <!-- Corrected links without data-bs-toggle and unique ids -->
                                 <li class="nav-item">
-                                    <a class="fs-5 nav-link text-dark d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src="~/images/icons/users.svg" alt="Contacts"  height="21" width="24" class="icon me-3" />
-                                        <span class="fs-4 fw-light txt-color-primary">Contacts</span>
+                                    <a class="fs-5 nav-link text-dark d-flex align-items-center" href="#contacts">
+                                        <img src="~/images/icons/users-black.svg" alt="Contacts" height="21" width="24" class="icon me-3" />
+                                        <span class="fs-4 fw-light">Contacts</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="fs-5 nav-link text-dark d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src="~/images/icons/key.svg" alt="Keywords"  height="21" width="24" class="icon me-3" />
-                                        <span class="fs-4 fw-light txt-color-primary">Keywords</span>
+                                    <a class="fs-5 nav-link text-dark d-flex align-items-center" href="#keywords">
+                                        <img src="~/images/icons/key-black.svg" alt="Keywords" height="21" width="24" class="icon me-3" />
+                                        <span class="fs-4 fw-light">Keywords</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="fs-5 nav-link text-dark d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src="~/images/icons/bell.svg" alt="Notifications"  height="21" width="24" class="icon me-3" />
-                                        <span class="fs-4 fw-light txt-color-primary">Notifications</span>
+                                    <a class="fs-5 nav-link text-dark d-flex align-items-center" href="#notifications">
+                                        <img src="~/images/icons/bell-black.svg" alt="Notifications" height="21" width="24" class="icon me-3" />
+                                        <span class="fs-4 fw-light">Notifications</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="fs-5 nav-link text-dark d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src="~/images/icons/bar-chart.svg" alt="Reports"  height="21" width="24" class="icon me-3" />
-                                        <span class="fs-4 fw-light txt-color-primary">Reports</span>
+                                    <a class="fs-5 nav-link text-dark d-flex align-items-center" href="#reports">
+                                        <img src="~/images/icons/bar-chart-black.svg" alt="Reports" height="21" width="24" class="icon me-3" />
+                                        <span class="fs-4 fw-light">Reports</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="fs-5 nav-link text-dark d-flex align-items-center" href="#pollster">
+                                        <img src="~/images/icons/list-black.svg" alt="Pollster" height="21" width="24" class="icon me-3" />
+                                        <span class="fs-4 fw-light">Pollster</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="fs-5 nav-link text-dark d-flex align-items-center" href="#scheduler">
+                                        <img src="~/images/icons/calendar-black.svg" alt="Scheduler" height="21" width="24" class="icon me-3" />
+                                        <span class="fs-4 fw-light">Scheduler</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="fs-5 nav-link text-dark d-flex align-items-center" href="#settings">
+                                        <img src="~/images/icons/settings-black.svg" alt="Settings" height="21" width="24" class="icon me-3" />
+                                        <span class="fs-4 fw-light">Settings</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="fs-5 nav-link text-dark d-flex align-items-center" href="#others">
+                                        <img src="~/images/icons/grid-black.svg" alt="Others" height="21" width="24" class="icon me-3" />
+                                        <span class="fs-4 fw-light">Others</span>
                                     </a>
                                 </li>
                             </ul>
-   
                         </div>
+                        <!-- Logout link at the bottom -->
+                    </div>
+                    <div class="mt-auto mb-4">
+                        <a class="fs-5 nav-link text-dark d-flex align-items-center" href="#logout">
+                            <img src="~/images/icons/log-out-black.svg" alt="Logout" height="21" width="24" class="icon me-3" />
+                            <span class="fs-4 fw-light">Logout</span>
+                        </a>
                     </div>
                 </div>
+
 
                 <!-- Navbar content for larger screens -->
                 <div class="collapse navbar-collapse justify-content-end d-none d-sm-flex" id="navbarNavDropdown">
@@ -148,10 +212,18 @@
                 </div>
             </div>
         </nav>
-
+        <!-- Off-canvas sidebar for dropdown menu in mobile view -->
+        <div class="offcanvas offcanvas-bottom" tabindex="-2" id="MessageoffcanvasDropdown" aria-labelledby="offcanvasDropdownLabel">
+            <div class="offcanvas-body">
+                <ul class="navbar-nav">
+                    <li><a class="nav-link txt-color-secondary" href="#">All</a></li>
+                    <li><a class="nav-link txt-color-secondary" href="#">Messages</a></li>
+                </ul>
+            </div>
+        </div>
     </header>
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-3 mt-4 pt-4">
             @RenderBody()
         </main>
     </div>
