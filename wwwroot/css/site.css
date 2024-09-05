@@ -51,6 +51,9 @@ body {
     .logo-responsive {
     height: 50px;
     } 
+    .hide-border {
+    border: none  !important;
+  }
 }
 
 @media (max-width: 576px) {
@@ -64,5 +67,4 @@ body {
     background-color: #f7f7f7; 
     border-radius: 0.25rem; 
   }
-
 }

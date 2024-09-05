@@ -6,88 +6,300 @@
     ViewData["User"] = "Admin";
 }
 
-<div class="container-fluid">
-    <div class="row">
+<div class="container-fluid mt-md-4 mt-2 px-0">
+    <div class="row no-gutters">
         <!-- Sidebar -->
-        <nav class="col-md-3 d-none d-md-block sidebar p-0">
-            <div class="d-flex flex-column">
-                <a class="btn-orange border-orange btn-block mb-4 px-4 py-2 d-flex flex-row align-items-center" href="#">
-                    <img src="~/images/icons/dept.svg" alt="Logo" height="15" width="18" class="me-md-1"/>
-                    <span class="fs-5 txt-color-primary d-none d-md-inline ms-2">Department</span>
-                    <i class="ms-auto bi bi-chevron-down ms-1 bold-chevron txt-color-primary"></i>
+        <nav class="col-md-3 d-none d-md-block sidebar">
+            <ul class="navbar-nav me-3 pb-2 mb-4">
+                <li class="nav-item dropdown d-none d-sm-block">
+                    <a class="fs-5 nav-link text-dark d-flex align-items-center justify-content-between btn-orange border-orange py-2 px-2 px-md-4 py-md-2" href="#" id="navbarDropdownMenuLink2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="d-flex align-items-center">
+                        <img src="~/images/icons/dept.svg" height="15" width="15" alt="Department" class="d-inline-block align-top me-2 color-primary" />
+                        <span class="txt-color-primary fs-6 me-2">Department</span>
+                        </div>
+                        <i class="bi bi-chevron-down ms-1 bold-chevron txt-color-primary align-self-end"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink2">
+                        <li><a class="dropdown-item" href="#">Department 1</a></li>
+                        <li><a class="dropdown-item" href="#">Department 2</a></li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <ul class="nav flex-column pt-4 mt-4">
+                <li class="nav-item">   
+                    <a class="nav-link py-2 px-4 options rounded-top d-flex align-items-center active custom-active" href="/Compose">
+                        <i class="bi bi-pencil-square me-2"></i> Compose
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link py-2 px-4 options options-border d-flex align-items-center " href="/Inbox">
+                        <i class="bi bi-envelope me-2"></i> Inbox
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link py-2 px-4 options options-border d-flex align-items-center" href="#">
+                        <i class="bi bi-arrow-right-circle me-2"></i> Sent
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link py-2 px-4 options options-border d-flex align-items-center" href="#">
+                        <i class="bi bi-arrow-up-circle me-2"></i> Outbox
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- Sidebar for Mobile View -->
+        <nav class="sidebar-mobile d-md-none">
+            <!-- Department Dropdown Button -->
+            <div class="d-flex align-items-center py-2">
+                @* <a class="btn btn-outline-orange box rounded d-flex align-items-center me-2" href="#"> *@
+                <a class="box nav-link txt-color-primary d-flex justify-content-center btn-orange border-orange"  href="#" data-bs-toggle="offcanvas" data-bs-target="#departmentOffcanvas" aria-controls="departmentOffcanvas">
+                    <img src="~/images/icons/dept.svg" alt="Department" height="16" width="16" class="d-inline-block" />
+                    <i class="fs-6 bi bi-chevron-down ms-1"></i>
                 </a>
-                <ul class="nav flex-column mt-4">
-                    <li class="nav-item">
-                        <a class="nav-link py-2 px-4 options rounded-top d-flex align-items-center active custom-active " href="/Compose">
-                            <i class="bi bi-pencil-square me-2"></i> Compose
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link py-2 px-4 options options-border d-flex align-items-center" href="/Inbox">
-                            <i class="bi bi-envelope me-2"></i> Inbox
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link py-2 px-4 options options-border d-flex align-items-center" href="#">
-                            <i class="bi bi-arrow-right-circle me-2"></i> Sent
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link py-2 px-4 options options-border d-flex align-items-center" href="#">
-                            <i class="bi bi-arrow-up-circle me-2"></i> Outbox
-                        </a>
-                    </li>
-                </ul>
+                
+            </div>
+            
+            <!-- Icons for Mobile Sidebar -->
+            <div class="d-flex gap-2 justify-content-end">
+                <a class="box bg-orange-light d-flex align-items-center justify-content-center p-2 active" href="/Compose">
+                    <i class="bi bi-pencil-square"></i>
+                </a>
+                <a class="box bg-orange d-flex align-items-center justify-content-center p-2 " href="/Inbox">
+                    <i class="bi bi-envelope"></i>
+                </a>
+                <a class="box bg-orange-light d-flex align-items-center justify-content-center p-2" href="/Inbox">
+                    <i class="bi bi-arrow-right-circle"></i>
+                </a>
+                <a class="box bg-orange-light d-flex align-items-center justify-content-center p-2" href="/Inbox">
+                    <i class="bi bi-arrow-up-circle"></i>
+                </a>
             </div>
         </nav>
 
-        <!-- Main Content -->
-        <main class="col-md-4 ms-sm-auto col-lg-9 px-md-4 message-compose">
-            <div class="mb-4">
-                <h1 class="h3 fw-normal">COMPOSE</h1>
+        <div class="offcanvas offcanvas-bottom" tabindex="-2" id="departmentOffcanvas" aria-labelledby="departmentOffcanvasLabel">
+            <div class="offcanvas-body">
+                <ul class="navbar-nav">
+                    <li><a class="nav-link txt-color-secondary" href="#">Department 1</a></li>
+                    <li><a class="nav-link txt-color-secondary" href="#">Department 2</a></li>
+                </ul>
             </div>
+        </div>
 
-            <form class="border rounded px-5 py-5">
-                <div class="mb-3">
-                    <label for="to" class="form-label">To</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Recipient" value="Ethan Patel, Liam Garcia, Sophia Kim" readonly>
-                        <button class="btn btn-outline-secondary" type="button">Groups</button>
-                        <button class="btn btn-orange" type="button">Contacts</button>
+        <main class="col-md-9 ms-sm-auto col-lg-9 ps-md-4 message-compose px-md-4">
+            <div class="mb-md-4 d-flex align-items-center justify-content-between">
+                <h1 class="h3 fw-normal d-none d-md-block">COMPOSE</h1>
+            </div>
+            <div class="rounded border hide-border px-md-4 py-md-4">
+                <div class="d-flex justify-content-between mt-md-0 mt-4">
+                    <div class="mb-md-4 d-flex align-items-center justify-content-between">
+                        <h1 class="h3 fw-normal d-md-none d-block">COMPOSE</h1>
                     </div>
-                </div>
-
-                <div class="mb-3">
-                    <label for="subject" class="form-label">Subject/Title</label>
-                    <input type="text" class="form-control" id="subject" value="Time Tracker Issue">
-                </div>
-
-                <div class="mb-3">
-                    <label for="message" class="form-label">Message*</label>
-                    <textarea class="form-control" id="message" rows="4">Just wanted to give you a heads up about a small hiccup I encountered with the time tracker...</textarea>
-                </div>
-
-                <div class="d-flex align-items-center mb-3">
-                    <button type="button" class="btn btn-link text-decoration-none">
-                        <i class="bi bi-paperclip"></i> Attach Files
-                    </button>
-                    <button type="button" class="btn btn-link text-decoration-none">
-                        <i class="bi bi-mic"></i> Voice-to-Text
-                    </button>
-                </div>
-
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="scheduleSending" checked>
-                        <label class="form-check-label" for="scheduleSending">
-                            Schedule Sending
+                    <div class="d-flex flex-row justify-content-end">
+                        <label class="form-label txt-color-primary mb-2 cursor-pointer" onchange="useTemplate()">
+                            Use Template
                         </label>
                     </div>
-                    <button type="button" class="btn btn-orange">
-                        Send <i class="bi bi-chevron-up"></i>
-                    </button>
                 </div>
-            </form>
+                <form action="" class="mx-md-4">
+                    <div class="mb-3">
+                        <label for="recipients" class="form-label">To</label>
+                        <div class="input-group d-none d-md-flex">
+                            <!-- Recipient Pills (Using Badges to Represent Pills) -->
+                            <div class="form-control recipients d-flex flex-wrap me-3 border rounded">
+                                <span class="badge bg-secondary mx-2 d-flex align-items-center rounded-pill ">Ethan Patel
+                                    <button type="button" class="recipients btn-close btn-close-white ms-2" aria-label="Remove"></button>
+                                </span>
+                                <span class="badge bg-secondary mx-2 d-flex align-items-center rounded-pill">Liam Garcia
+                                    <button type="button" class="recipients btn-close btn-close-white ms-2" aria-label="Remove"></button>
+                                </span>
+                                <span class="badge bg-secondary mx-2 d-flex align-items-center rounded-pill">Sophia Kim
+                                    <button type="button" class="recipients btn-close btn-close-white ms-2" aria-label="Remove"></button>
+                                </span>
+                            </div>
+                            <!-- Groups Button -->
+                            <button type="button" class="btn btn-orange-fill rounded px-md-4 py-md-2 me-2">Groups</button>
+                            <!-- Contacts Button -->
+                            <button type="button" class="btn btn-orange border-orange rounded d-flex align-items-center px-md-2 py-md-2">
+                                <img src="~/images/icons/users.svg" alt="Logo" height="15" width="15" class="me-2"/>
+                                <span class="txt-color-primary">Contacts</span>
+                            </button>
+                        </div>
+                        <div class="input-group d-md-none">
+                            <div class="form-control recipients d-flex flex-row justify-content-between">
+                                <div class="d-flex flex-row">
+                                    <span class="badge bg-secondary mx-2 d-flex align-items-center rounded-pill ">Ethan Patel
+                                        <button type="button" class="recipients btn-close btn-close-white ms-2" aria-label="Remove"></button>
+                                    </span>
+                                    <span class="badge bg-secondary mx-2 d-flex align-items-center rounded-pill">Liam Garcia
+                                        <button type="button" class="recipients btn-close btn-close-white ms-2" aria-label="Remove"></button>
+                                    </span>
+                                    <span class="badge bg-secondary mx-2 d-flex align-items-center rounded-pill">Sophia Kim
+                                        <button type="button" class="recipients btn-close btn-close-white ms-2" aria-label="Remove"></button>
+                                    </span>
+                                </div>
+                                <button class="btn btn-custom txt-color-primary border-orange px-1 py-0" type="button">
+                                    <i class="bi bi-plus"></i> <!-- Replace this with the desired plus icon -->
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="subjectFormControl" class="form-label">Subject / Title</label>
+                        <input class="form-control" type="text" placeholder="Subjec / Title" aria-label="Subject">
+                    </div>
+                    <div class="mb-3">
+                        <label for="messageFormControl" class="form-label">Message</label>
+                        <textarea class="d-md-none d-block form-control message mobile rounded" rows="3"></textarea>
+                        <textarea class="d-none d-md-block form-control message rounded" rows="3"></textarea>
+                    </div>
+                    <!-- Compose send options -->
+                    <div class="d-flex justify-content-between align-items-center">
+                        <!-- Attach Files and Voice-to-Text -->
+                        <div class="d-flex align-items-center align-self-start">
+                            <label class="compose input-group-text bg-white border-0 cursor-pointer me-4 me-md-4">
+                                <input type="file" name="files" multiple hidden accept=".pdf, .doc, .docx, .xls, .xlsx, .txt" onchange="displayUploadedFiles(this)">
+                                <i class="bi bi-paperclip txt-color-primary fs-5"></i>
+                                <span class="d-none d-md-block mx-0 mx-md-2 txt-color-primary">Attach Files</span>
+                            </label>
+
+                            <label class="compose input-group-text bg-white border-0 cursor-pointer">
+                                <input type="button" name="audioFiles" multiple hidden accept="audio/*" onchange="">
+                                <i class="bi bi-mic txt-color-primary fs-5"></i>
+                                <span class="d-none d-md-block mx-0 mx-md-2 txt-color-primary">Voice-to-Text</span>
+                            </label>
+                        </div>
+
+                        <!-- Schedule Sending and Send Button -->
+                        <div class="d-flex flex-column-reverse flex-md-row align-items-center">
+                            <!-- Schedule Sending-->
+                            <div class="btn-group dropdown mt-4 mt-md-0">
+                                <div class="form-check d-flex align-items-center me-4">
+                                    <input class="form-check-input me-2" type="checkbox" id="scheduleSending" onchange="toggleDateTimePicker()">
+                                    <label class="form-check-label text-muted" for="scheduleSending">
+                                        Schedule Sending
+                                    </label>
+                                </div>
+
+                                <!-- Dropdown for date and time (appears when Schedule Sending is checked) -->
+                                <div class="dropdown d-none custom-dropdown p-0 m-0" id="scheduleDropdown">
+                                    <ul class="dropdown-menu show dropdown-menu-start p-0 m-0" aria-labelledby="scheduleSending">
+                                        <li class="dropdown-item p-0 m-0 border-0">
+                                            <div class="form-group d-flex p-0">
+                                                <!-- Date Input -->
+                                                <input type="date" class="form-control me-1" value="2024-01-15">
+                                                <!-- Time Input -->
+                                                <input type="time" class="form-control" value="08:00">
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Send Button with dropdown -->
+                            <div class="btn-group dropup">
+                                <button type="button" class="btn btn-orange-fill rounded px-4 mx-2">Send</button>
+                                <button type="button" class="btn btn-orange border-orange rounded px-1 dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-chevron-up bold-chevron txt-color-primary align-self-end"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li class="dropdown-item">
+                                        <input type="checkbox" id="smsCheckbox">
+                                        <label for="smsCheckbox">SMS (GSM)</label>
+                                    </li>
+                                    <li class="dropdown-item">
+                                        <input type="checkbox" id="messagingCheckbox">
+                                        <label for="messagingCheckbox">Messaging</label>
+                                    </li>
+                                    <li class="dropdown-item">
+                                        <input type="checkbox" id="emailCheckbox">
+                                        <label for="emailCheckbox">Email</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="attached-files mt-3">
+                        @foreach (var file in Model.UploadedFiles)
+                        {
+                            <span class="attached-file-badge d-flex align-items-center">
+                                <i class="bi bi-file-earmark-text-fill me-2"></i> @file.FileName
+                                <button type="button" class="btn-close ms-2" aria-label="Remove"></button>
+                            </span>
+                        }
+                    </div>
+                </form>
+            </div>
         </main>
     </div>
 </div>
+
+<script>
+    function useTemplate(){
+        console.log("Use template clicked!");
+    }
+
+    function displayUploadedFiles(input) {
+        const files = input.files;
+        const container = document.querySelector('.attached-files');
+
+        for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            const fileType = file.type; 
+            const fileName = file.name;
+            const fileExtension = fileName.split('.').pop().toLowerCase();
+
+            let fileIcon = getFileIcon(fileExtension);
+
+            const fileBadge = document.createElement('span');
+            fileBadge.classList.add('bg-orange-light', 'text-black', 'px-3', 'py-2', 'attached-file-badge', 'd-flex', 'align-items-center');
+            
+            fileBadge.innerHTML = `
+                <i class="${fileIcon} me-2"></i> ${fileName}
+                <button type="button" class="btn-close ms-2" aria-label="Remove" onclick="removeFile(this)"></button>
+            `;
+            container.appendChild(fileBadge);
+        }
+    }
+
+
+    function getFileIcon(extension) {
+        switch (extension) {
+            case 'pdf':
+                return 'bi bi-file-earmark-pdf';
+            case 'doc':
+            case 'docx':
+                return 'bi bi-file-earmark-word';
+            case 'xls':
+            case 'xlsx':
+                return 'bi bi-file-earmark-spreadsheet';
+            case 'txt':
+                return 'bi bi-file-earmark-text';
+            case 'mp3':
+            case 'wav':
+            case 'ogg':
+                return 'bi bi-file-earmark-music';
+            default:
+                return 'bi bi-file-earmark';
+        }
+    }
+
+    function removeFile(button) {
+        const fileBadge = button.closest('span');
+        fileBadge.remove();
+    }
+
+    function toggleDateTimePicker() {
+        const scheduleDropdown = document.getElementById('scheduleDropdown');
+        const checkBox = document.getElementById('scheduleSending');
+        
+        if (checkBox.checked) {
+            scheduleDropdown.classList.remove('d-none');
+        } else {
+            scheduleDropdown.classList.add('d-none');
+        }
+    }
+
+
+</script>
