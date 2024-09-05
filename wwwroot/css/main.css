@@ -34,22 +34,27 @@
     color: white;
 }
 
+.bg-orange-light {
+    background-color: #FFF7EC;
+}
+
+
 .box {
-    width: 75px; /* Fixed width for each box */
-    height: 70px; /* Fixed height for each box */
-    padding: 12px 18px; /* Padding inside each box */
-    border: 2px solid #ff6600; /* Orange border */
-    border-radius: 4px; /* Rounded corners */
-    text-decoration: none; /* Remove underline from links */
-    display: flex; /* Flexbox for layout */
-    flex-direction: column; /* Stack icon and text vertically */
-    align-items: center; /* Center content horizontally */
-    justify-content: center; /* Center content vertically */
-    overflow: hidden; /* Hide overflow content */
-    text-align: center; /* Center text */
-    gap: 6px; /* Gap between icon and text */
-    background-color: transparent; /* Transparent background */
-    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition for hover */
+    width: 75px; 
+    height: 70px; 
+    padding: 12px 18px; 
+    border: 2px solid #ff6600; 
+    border-radius: 4px; 
+    text-decoration: none; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    overflow: hidden; 
+    text-align: center; 
+    gap: 6px; 
+    background-color: transparent; 
+    transition: background-color 0.3s, border-color 0.3s; 
 }
 
 .box span {
@@ -58,14 +63,17 @@
 
 .btn-orange {
     background-color: white;
-    color: white;
     border-radius: 4px;
+    text-decoration: none;
+}
+
+.border-orange {
     border: 1px solid #ff6600; 
 }
 
 .btn-orange:hover {
     border-color: #e65c00;
-    color: white;
+    color: #FF5400;
 }
 
 .btn-orange .icon {
@@ -112,8 +120,10 @@
 
 .sidebar .options {
     background-color: #FF54000D;
-    border-top: 1px solid #FF540040;
     color: #FF5400;
+}
+.sidebar .options-border {
+    border-top: 1px solid #FF540040;
 }
 
 .custom-active {
@@ -132,4 +142,230 @@
 
 .nav-link:hover {
     color: #FF5400; /* Hover color for non-active links */
+}
+
+
+/* Message Container Styles */
+.card-body {
+    background-color: #f7f7f7; /* Light grey background to match the design */
+}
+
+.message-container {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+}
+
+/* Sender Info Styles */
+.sender-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.sender-name {
+    font-weight: bold;
+    color: #333;
+}
+
+.sender-number {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+/* Search Bar Container */
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-container .form-control:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: none; /* Remove the default Bootstrap blue shadow */
+    border-color: transparent; /* Ensure the border remains transparent on focus */
+    border: 2px solid white; /* Ensure there is no border */
+}
+
+.search-container .form-control {
+    background-color: white; /* Set background to white */
+    border: 2px solid white; /* Ensure there is no border */
+}
+
+.gear-button .bi-gear {
+    font-size: 1.5rem; /* Increase the font size to enlarge the icon */
+}
+
+.gear-button {
+    padding: 0.5rem;
+}
+
+.gear-button:hover,
+.gear-button:focus,
+.gear-button:focus-visible {
+    outline: none !important; 
+    box-shadow: none !important; 
+    border-color: transparent !important; 
+    background-color: inherit; 
+    color: inherit; 
+}
+
+/* Message */
+
+.message-header {
+    background: linear-gradient(180deg, #FF8E32 0%, #FF5400 100%);
+    color: white; /* Adjust text color if needed */
+}
+
+/* Message Body Styles */
+.message-body {
+    max-height: 400px; /* Adjust this value as needed to fit your layout */
+    overflow-y: auto; /* Makes the message area scrollable */
+    background-color: #f7f7f7; /* Light grey background to match the design */
+    border-radius: 0.25rem; /* Rounded corners for the container */
+}
+
+.message-received .message-box,
+.message-sent .message-box {
+    border-radius: 0.5rem; /* Rounded corners */
+    max-width: 45%; /* Limits width to ensure it doesn't span more than 45% of the message body */
+    padding: 10px; /* Adjust padding for better layout */
+}
+
+.message-received .message-box {
+    background-color: white; /* White background for received messages */
+}
+
+.message-sent .message-box {
+    background-color: #FFF7EC; /* Light orange background for sent messages */
+}
+
+
+.message-text {
+    white-space: pre-wrap; /* Allows the text to wrap */
+    word-wrap: break-word; /* Breaks long words */
+    font-size: 0.875rem; /* Adjust font size for messages */
+    line-height: 1.5; /* Line height for better readability */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    font-family: inherit; /* Inherits font from the parent */
+    background-color: inherit; /* Ensures background color matches parent */
+    border: none; /* Removes border */
+}
+
+.text-muted {
+    font-size: 1 rem; /* Smaller font size for timestamps and 'Via SMS' text */
+}
+
+.message {
+    position: relative; /* Allows positioning of other elements if needed */
+}
+
+.message .d-flex {
+    align-items: flex-start; /* Align message contents to the top */
+}
+
+.message-body::-webkit-scrollbar {
+    width: 4px; /* Width of the scrollbar */
+}
+
+.message-body::-webkit-scrollbar-thumb {
+    background-color: #cccccc; /* Color of the scrollbar thumb */
+    border-radius: 4px; /* Rounded scrollbar thumb */
+}
+
+.message-body::-webkit-scrollbar-track {
+    background-color: #f7f7f7; /* Color of the scrollbar track */
+}
+
+.reply .bi-reply {
+    font-size: 1.5rem;
+}
+
+.reply:hover,
+.reply:focus,
+.reply:focus-visible {
+    outline: none !important; 
+    box-shadow: none !important; 
+    border-color: transparent !important; 
+    background-color: inherit; 
+    color: inherit; 
+}
+
+
+
+.input-group-text {
+    border: none; /* Remove border */
+    background-color: white; /* White background for icons */
+    color: #FF5400; /* Orange color for icons */
+}
+
+/* Textarea styles */
+textarea.form-control {
+    height: 60px; /* Fixed height for text area */
+    resize: none; /* Disable resizing */
+    border-radius: 0; /* Remove default border radius */
+    overflow-y: auto; /* Show vertical scrollbar only */
+    text-align: left; /* Center text horizontally */
+    padding-top: calc(30px - 0.75em); /* Center text vertically; Adjust based on height and font-size */
+    padding-bottom: calc(30px - 0.75em); /* Same as above for consistent centering */
+}
+
+/* Center placeholder text and remove outline */
+textarea.form-control::placeholder {
+    text-align: left; /* Center placeholder text */
+}
+
+/* Remove focus outline and shadow */
+textarea.form-control:focus,
+textarea.form-control:focus-visible {
+    outline: none !important; 
+    box-shadow: none !important; 
+    border-color: transparent !important; 
+    background-color: inherit; 
+    color: inherit; 
+}
+
+
+/* Custom Scrollbar for textarea */
+textarea.form-control::-webkit-scrollbar {
+    width: 8px; 
+}
+
+textarea.form-control::-webkit-scrollbar-thumb {
+    background-color: #cccccc; 
+    border-radius: 4px; 
+}
+
+textarea.form-control::-webkit-scrollbar-track {
+    background-color: #f7f7f7; 
+    margin-right: 8px; 
+}
+
+textarea.form-control::-webkit-scrollbar-corner {
+    background-color: transparent; 
+}
+
+
+/* Attached Files Styles */
+
+.attached-file-badge {
+    background-color: #FFF5EC; 
+    border-radius: 0.5rem; 
+    display: flex; 
+    align-items: center; 
+    gap: 0.5rem; 
+}
+
+
+.btn-close {
+    padding: 0; 
+    margin-left: 5px; 
+    color: #FF5400; 
+}
+
+.btn-close:hover {
+    color: #FF8E32; 
 }

@@ -1,8 +1,13 @@
 ﻿@page
 @model InboxModel
 @{
-    ViewData["Title"] = "Home page";
+    Layout = "_Layout";
+    ViewData["Title"] = "Inbox";
     ViewData["User"] = "Admin";
+
+    @* Inbox data *@
+    ViewData["Inbox_Sender_Name"] = "Ana Santos";
+    ViewData["Inbox_Sender_Number"] = "(+63 999 444 8888)";
 }
 
 <div class="container-fluid">
@@ -10,29 +15,29 @@
         <!-- Sidebar -->
         <nav class="col-md-3 d-none d-md-block sidebar p-0">
             <div class="d-flex flex-column">
-                <a class="btn-orange btn-block mb-3 px-4 py-2 d-flex flex-row align-items-center" href="#">
+                <a class="btn-orange border-orange btn-block mb-4 px-4 py-2 d-flex flex-row align-items-center" href="#">
                     <img src="~/images/icons/dept.svg" alt="Logo" height="15" width="18" class="me-md-1"/>
                     <span class="fs-5 txt-color-primary d-none d-md-inline ms-2">Department</span>
                     <i class="ms-auto bi bi-chevron-down ms-1 bold-chevron txt-color-primary"></i>
                 </a>
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link py-2 options d-flex align-items-center" href="/Compose">
+                <ul class="nav flex-column mt-4">
+                    <li class="nav-item">   
+                        <a class="nav-link py-2 px-4 options rounded-top d-flex align-items-center" href="/Compose">
                             <i class="bi bi-pencil-square me-2"></i> Compose
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link py-2 options d-flex active custom-active align-items-center" href="/Index">
+                        <a class="nav-link py-2 px-4 options options-border d-flex align-items-center active custom-active" href="/Inbox">
                             <i class="bi bi-envelope me-2"></i> Inbox
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link py-2 options d-flex align-items-center" href="#">
+                        <a class="nav-link py-2 px-4 options options-border d-flex align-items-center" href="#">
                             <i class="bi bi-arrow-right-circle me-2"></i> Sent
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link py-2 options d-flex align-items-center" href="#">
+                        <a class="nav-link py-2 px-4 options options-border d-flex align-items-center" href="#">
                             <i class="bi bi-arrow-up-circle me-2"></i> Outbox
                         </a>
                     </li>
@@ -41,52 +46,116 @@
         </nav>
 
         <!-- Main Content -->
-        <main class="col-md-4 ms-sm-auto col-lg-9 px-md-4 message-compose">
-            <div class="pb-3 mb-4 border-bottom">
-                <h1 class="h4 fw-normal">COMPOSE</h1>
+        <main class="col-md-9 ms-sm-auto col-lg-9 ps-md-4 message-compose">
+            <div class="mb-4  d-flex flex-row align-items-center justify-content-between">
+                <h1 class="h3 fw-normal">INBOX</h1>
+                <a class="btn-orange border-orange txt-color-primary px-4 py-2" href="#">Export File</a>
             </div>
 
-            <form class="border px-5 py-5">
-                <div class="mb-3">
-                    <label for="to" class="form-label">To</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Recipient" value="Ethan Patel, Liam Garcia, Sophia Kim" readonly>
-                        <button class="btn btn-outline-secondary" type="button">Groups</button>
-                        <button class="btn btn-orange" type="button">Contacts</button>
+            <div class="card">
+                <div class="card-header message-header d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center px-4 py-2">
+                        <span class="fs-4 fw-bold me-4">@ViewData["Inbox_Sender_Name"]</span>
+                        <span class="pt-1 ms-2">@ViewData["Inbox_Sender_Number"]</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <!-- Search Bar -->
+                        <div class="input-group search-container">
+                            <span class="input-group-text bg-white border-0 rounded-start" id="search-icon">
+                                <i class="bi bi-search"></i>
+                            </span>
+                            <input type="text" class="form-control rounded-end py-1" placeholder="Search" aria-label="Search" aria-describedby="search-icon">
+                            <button class="btn btn-outline-transparent txt-color-primary-alt  ms-2 gear-button" type="button">
+                                <i class="bi bi-gear"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
-
-                <div class="mb-3">
-                    <label for="subject" class="form-label">Subject/Title</label>
-                    <input type="text" class="form-control" id="subject" value="Time Tracker Issue">
-                </div>
-
-                <div class="mb-3">
-                    <label for="message" class="form-label">Message*</label>
-                    <textarea class="form-control" id="message" rows="4">Just wanted to give you a heads up about a small hiccup I encountered with the time tracker...</textarea>
-                </div>
-
-                <div class="d-flex align-items-center mb-3">
-                    <button type="button" class="btn btn-link text-decoration-none">
-                        <i class="bi bi-paperclip"></i> Attach Files
-                    </button>
-                    <button type="button" class="btn btn-link text-decoration-none">
-                        <i class="bi bi-mic"></i> Voice-to-Text
-                    </button>
-                </div>
-
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="scheduleSending" checked>
-                        <label class="form-check-label" for="scheduleSending">
-                            Schedule Sending
-                        </label>
+                <div class="card-body py-0 ps-0 pe-1">
+                    <!-- Message Thread - Received -->
+                    <div id="messageBody" class="message-body my-0 mx-0 pe-3">
+                        @for (int i = 0; i < Model.Messages.Count; i++)
+                        {
+                            var message = Model.Messages[i];
+                            if (message.IsSent)
+                            {
+                                <div class="message message-sent mb-3">
+                                    <div class="d-flex justify-content-end align-items-center">
+                                        <button class="btn btn-outline-transparent txt-color-primary-alt rounded border-0 me-1 reply" type="button">
+                                            <i class="bi bi-reply txt-color-primary"></i>
+                                        </button>
+                                        <div class="rounded message-box px-4 py-4">
+                                            <pre class="message-text">@message.Content</pre>
+                                            <small class="text-muted d-block text-end"></small>
+                                        </div>
+                                    </div>
+                                    <small class="text-muted mt-2 d-block text-end">@message.Timestamp</small>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="message message-received mb-3 ms-3">
+                                    <div class="d-flex justify-content-start align-items-center">
+                                        <div class="rounded message-box px-4 py-4">
+                                            <pre class="message-text">@message.Content</pre>
+                                            <small class="text-muted d-block text-end">Via SMS</small>
+                                        </div>
+                                        <button class="btn btn-outline-transparent txt-color-primary-alt rounded border-0 ms-1 reply" type="button">
+                                            <i class="bi bi-reply txt-color-primary"></i>
+                                        </button>
+                                    </div>
+                                    <small class="text-muted mt-2 d-block">@message.Timestamp</small>
+                                </div>
+                            }
+                        }
                     </div>
-                    <button type="button" class="btn btn-orange">
-                        Send <i class="bi bi-chevron-up"></i>
+                </div>
+            </div>
+
+            <!-- Message Input -->
+            <div class="mt-4">
+                <label class="form-label txt-color-primary mb-2">Use Template</label>
+                <div class="input-group rounded border px-3 py-2">
+                    <!-- Icons for attachments and audio -->
+                    <span class="input-group-text bg-white border-0">
+                        <i class="bi bi-paperclip txt-color-primary fs-5"></i>
+                    </span>
+                    <span class="input-group-text bg-white border-0">
+                        <i class="bi bi-mic txt-color-primary fs-5"></i>
+                    </span>
+
+                    <!-- Text area for entering message -->
+                    <textarea class="form-control border-0" placeholder="Enter your message" aria-label="Enter your message"></textarea>
+
+                    <!-- Send button styled as an icon -->
+                    <button class="btn btn-orange" type="button">
+                        <i class="bi bi-send txt-color-primary"></i>
                     </button>
                 </div>
-            </form>
-        </main>
+
+                <!-- Attached Files -->
+                <div class="attached-files mt-3 d-flex flex-wrap gap-2">
+                    <span class="bg-orange-light text-black px-3 py-2 attached-file-badge d-flex align-items-center">
+                        <i class="bi bi-file-earmark-text-fill me-2"></i> File 1.pdf
+                        <button type="button" class="btn-close ms-2" aria-label="Remove"></button>
+                    </span>
+                    <span class="bg-orange-light text-black px-3 py-2 attached-file-badge d-flex align-items-center">
+                        <i class="bi bi-file-earmark-text-fill me-2"></i> File 2.pdf
+                        <button type="button" class="btn-close ms-2" aria-label="Remove"></button>
+                    </span>
+                    <span class="bg-orange-light text-black px-3 py-2 attached-file-badge d-flex align-items-center">
+                        <i class="bi bi-file-earmark-text-fill me-2"></i> File 3.pdf
+                        <button type="button" class="btn-close ms-2" aria-label="Remove"></button>
+                    </span>
+                </div>
+            </div>
+       </main>
     </div>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var messageBody = document.getElementById("messageBody");
+        messageBody.scrollTop = messageBody.scrollHeight;
+    });
+</script>

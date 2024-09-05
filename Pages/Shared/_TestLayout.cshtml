@@ -13,9 +13,9 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Compose">
+                @* <a class="navbar-brand" asp-area="" asp-page="/Compose">
                     <img src="~/images/logo.png" alt="Logo" class="d-inline-block align-top logo-responsive" />
-                </a>
+                </a> *@
                 <div class="d-flex justify-content-end align-items-center" id="navbarNavDropdown">
                     <ul class="navbar-nav me-3">
                         <!-- Dropdown for desktop view User-->
@@ -64,7 +64,7 @@
                 <!-- Messages dropdown button -->
                 <ul class="navbar-nav me-3">
                     <li class="nav-item dropdown d-none d-sm-block">
-                        <a class="fs-5 nav-link text-dark d-flex align-items-center btn-orange border-orange py-2 px-2 px-md-3 py-md-2" href="#" id="navbarDropdownMenuLink2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="fs-5 nav-link text-dark d-flex align-items-center btn-orange py-2 px-2 px-md-3 py-md-2" href="#" id="navbarDropdownMenuLink2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="~/images/icons/mail.svg" alt="Logo" class="d-inline-block align-top me-2 color-primary" />
                             <span class="txt-color-primary me-2">Messages</span>
                             <i class="bi bi-chevron-down ms-1 bold-chevron txt-color-primary"></i>
@@ -75,7 +75,7 @@
                         </ul>
                     </li>
                     <li class="nav-item d-block d-sm-none">
-                        <a class="fs-5 nav-link text-dark d-flex align-items-center btn-orange border-orange py-2 px-2 px-md-3 py-md-2" href="#" id="navbarDropdownOffcanvasToggle" role="button" data-bs-toggle="offcanvas" data-bs-target="#MessageoffcanvasDropdown" aria-controls="offcanvasDropdown" aria-expanded="false">
+                        <a class="fs-5 nav-link text-dark d-flex align-items-center btn-orange py-2 px-2 px-md-3 py-md-2" href="#" id="navbarDropdownOffcanvasToggle" role="button" data-bs-toggle="offcanvas" data-bs-target="#MessageoffcanvasDropdown" aria-controls="offcanvasDropdown" aria-expanded="false">
                             <img src="~/images/icons/mail.svg" alt="Logo" class="d-inline-block align-top me-2 color-primary" />
                             <span class="txt-color-primary me-2">Messages</span>
                             <i class="bi bi-chevron-down ms-1 bold-chevron txt-color-primary"></i>
@@ -169,42 +169,42 @@
                 <!-- Navbar content for larger screens -->
                 <div class="collapse navbar-collapse justify-content-end d-none d-sm-flex" id="navbarNavDropdown">
                     <div class="navbar-nav d-flex flex-row">
-                        <a class="nav-link box btn-orange border-orange d-flex flex-column align-items-center px-2 px-md-3 me-2 text-center txt-color-primary" asp-area="" asp-page="/Dashboard">
+                        <a class="nav-link box btn-orange d-flex flex-column align-items-center px-2 px-md-3 me-2 text-center txt-color-primary" asp-area="" asp-page="/Dashboard">
                             <img src="~/images/icons/users.svg" alt="Contacts" class="icon" />
                             <span class="txt-color-primary">Contacts</span>
                         </a>
                         
-                        <a class="nav-link box btn-orange border-orange d-flex flex-column align-items-center px-2 px-md-3 me-2 text-center" href="#">
+                        <a class="nav-link box btn-orange d-flex flex-column align-items-center px-2 px-md-3 me-2 text-center" href="#">
                             <img src="~/images/icons/key.svg" alt="Keywords" class="icon" />
                             <span class="txt-color-primary">Keywords</span>
                         </a>
                         
-                        <a class="nav-link box btn-orange border-orange d-flex flex-column align-items-center px-2 px-md-3 me-2 text-center" href="#">
+                        <a class="nav-link box btn-orange d-flex flex-column align-items-center px-2 px-md-3 me-2 text-center" href="#">
                             <img src="~/images/icons/bell.svg" alt="Notifications" class="icon" />
                             <span class="txt-color-primary">Notifications</span>
                         </a>
                         
-                        <a class="nav-link box btn-orange border-orange d-flex flex-column align-items-center px-2 px-md-3 me-2 text-center" href="#">
+                        <a class="nav-link box btn-orange d-flex flex-column align-items-center px-2 px-md-3 me-2 text-center" href="#">
                             <img src="~/images/icons/bar-chart.svg" alt="Reports" class="icon" />
                             <span class="txt-color-primary">Reports</span>
                         </a>
 
-                        <a class="nav-link box btn-orange border-orange d-flex flex-column align-items-center px-2 px-md-3 me-2 text-center" href="#">
+                        <a class="nav-link box btn-orange d-flex flex-column align-items-center px-2 px-md-3 me-2 text-center" href="#">
                             <img src="~/images/icons/list.svg" alt="Pollster" class="icon" />
                             <span class="txt-color-primary">Pollster</span>
                         </a>
                         
-                        <a class="nav-link box btn-orange border-orange d-flex flex-column align-items-center px-2 px-md-3 me-2 text-center" href="#">
+                        <a class="nav-link box btn-orange d-flex flex-column align-items-center px-2 px-md-3 me-2 text-center" href="#">
                             <img src="~/images/icons/calendar.svg" alt="Scheduler" class="icon" />
                             <span class="txt-color-primary">Scheduler</span>
                         </a>
                         
-                        <a class="nav-link box btn-orange border-orange d-flex flex-column align-items-center px-2 px-md-3 me-2 text-center" href="#">
+                        <a class="nav-link box btn-orange d-flex flex-column align-items-center px-2 px-md-3 me-2 text-center" href="#">
                             <img src="~/images/icons/settings.svg" alt="Settings" class="icon" />
                             <span class="txt-color-primary">Settings</span>
                         </a>
 
-                        <a class="nav-link box btn-orange border-orange d-flex flex-column align-items-center px-2 px-md-3 me-2 text-center" href="#">
+                        <a class="nav-link box btn-orange d-flex flex-column align-items-center px-2 px-md-3 me-2 text-center" href="#">
                             <img src="~/images/icons/grid.svg" alt="Others" class="icon" />
                             <span class="txt-color-primary">Others</span>
                         </a>

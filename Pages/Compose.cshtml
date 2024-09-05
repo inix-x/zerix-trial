@@ -1,7 +1,8 @@
 ﻿@page
 @model ComposeModel
 @{
-    ViewData["Title"] = "Home page";
+    Layout = "_Layout";
+    ViewData["Title"] = "Inbox";
     ViewData["User"] = "Admin";
 }
 
@@ -10,29 +11,29 @@
         <!-- Sidebar -->
         <nav class="col-md-3 d-none d-md-block sidebar p-0">
             <div class="d-flex flex-column">
-                <a class="btn-orange btn-block mb-3 px-4 py-2 d-flex flex-row align-items-center" href="#">
+                <a class="btn-orange btn-block mb-4 px-4 py-2 d-flex flex-row align-items-center" href="#">
                     <img src="~/images/icons/dept.svg" alt="Logo" height="15" width="18" class="me-md-1"/>
                     <span class="fs-5 txt-color-primary d-none d-md-inline ms-2">Department</span>
                     <i class="ms-auto bi bi-chevron-down ms-1 bold-chevron txt-color-primary"></i>
                 </a>
-                <ul class="nav flex-column">
+                <ul class="nav flex-column mt-4">
                     <li class="nav-item">
-                        <a class="nav-link py-2 options active custom-active d-flex align-items-center" href="/Compose">
+                        <a class="nav-link py-2 px-4 options rounded-top d-flex align-items-center active custom-active " href="/Compose">
                             <i class="bi bi-pencil-square me-2"></i> Compose
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link py-2 options d-flex align-items-center" href="/Inbox">
+                        <a class="nav-link py-2 px-4 options options-border d-flex align-items-center" href="/Inbox">
                             <i class="bi bi-envelope me-2"></i> Inbox
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link py-2 options d-flex align-items-center" href="#">
+                        <a class="nav-link py-2 px-4 options options-border d-flex align-items-center" href="#">
                             <i class="bi bi-arrow-right-circle me-2"></i> Sent
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link py-2 options d-flex align-items-center" href="#">
+                        <a class="nav-link py-2 px-4 options options-border d-flex align-items-center" href="#">
                             <i class="bi bi-arrow-up-circle me-2"></i> Outbox
                         </a>
                     </li>
@@ -42,11 +43,11 @@
 
         <!-- Main Content -->
         <main class="col-md-4 ms-sm-auto col-lg-9 px-md-4 message-compose">
-            <div class="pb-3 mb-4 border-bottom">
-                <h1 class="h4 fw-normal">COMPOSE</h1>
+            <div class="mb-4">
+                <h1 class="h3 fw-normal">COMPOSE</h1>
             </div>
 
-            <form class="border px-5 py-5">
+            <form class="border rounded px-5 py-5">
                 <div class="mb-3">
                     <label for="to" class="form-label">To</label>
                     <div class="input-group">
