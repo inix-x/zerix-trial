@@ -1,6 +1,7 @@
 html {
   font-size: 14px;
   font-family: "Microsoft Sans Serif", sans-serif;
+  height: 100vh;
 }
 
 /* Default logo size */
@@ -45,21 +46,23 @@ body {
   margin-bottom: 60px;
 }
 
-/* Responsive size adjustments for smaller screens */
 @media (max-width: 768px) {
 
-  /* Tablets and below */
-  .logo-responsive {
+    .logo-responsive {
     height: 50px;
-    /* Smaller size for tablets */
-  } 
+    } 
 }
 
 @media (max-width: 576px) {
   
-  /* Phones and below */
   .logo-responsive {
     height: 40px;
-    /* Even smaller size for phones */
   }
+
+  .message-body {
+    overflow-y: auto; 
+    background-color: #f7f7f7; 
+    border-radius: 0.25rem; 
+  }
+
 }

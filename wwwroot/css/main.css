@@ -52,7 +52,6 @@
     justify-content: center; 
     overflow: hidden; 
     text-align: center; 
-    gap: 6px; 
     background-color: transparent; 
     transition: background-color 0.3s, border-color 0.3s; 
 }
@@ -144,6 +143,58 @@
     color: #FF5400; /* Hover color for non-active links */
 }
 
+/* Mobile Sidebar Styles */
+.sidebar-mobile {
+    padding: 0.5rem 1rem; /* Padding for mobile sidebar */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Mobile Icon Styles */
+.sidebar-mobile .box {
+    width: 50px; 
+    height: 50px; 
+    padding: 10px; 
+    border: 1px solid #ff6600; 
+    flex-direction: row;
+    border-radius: 4px; 
+    text-decoration: none;
+    background-color: transparent;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.sidebar-mobile .box.active {
+    background-color: #FF5400; /* Background color for active state */
+    color: white; /* Text color for active state */
+}
+
+.sidebar-mobile .box:hover {
+    background-color: #FF54000D; /* Hover effect */
+    border-color: #e65c00;
+    color: white;
+}
+
+/* Icon Styles */
+.sidebar-mobile .box i {
+    color: #FF5400; /* Icon color */
+    font-size: 1.5rem; /* Icon size */
+}
+
+.sidebar-mobile .box.active i {
+    color: white; /* Icon color for active state */
+}
+
+
+
+.export-file-link-mobile {
+    text-decoration: underline; /* Underline text for mobile */
+    font-weight: normal; /* Adjust font weight */
+    margin-left: auto; /* Align to right */
+    display: block; /* Ensure it takes full width */
+    padding: 0.5rem; /* Add some padding for touch targets */
+    color: #FF5400; /* Orange color to match the design */
+}
 
 /* Message Container Styles */
 .card-body {
@@ -194,6 +245,45 @@
     border: 2px solid white; /* Ensure there is no border */
 }
 
+/* Additional styling for mobile search bar */
+.search-bar-mobile {
+    position: absolute; /* Use absolute positioning */
+    top: 61.25px; /* Adjust based on where you want it to appear */
+    left: 0;
+    right: 0;
+    z-index: 1000; /* High z-index to ensure it floats above other content */
+    background-color: white; /* Background color to make it visible over content */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow for better visibility */
+    padding: 8px 16px; /* Padding for better aesthetics */
+}
+
+/* Search input for mobile */
+.search-bar-mobile .form-control {
+    border-radius: 0.25rem; /* Rounded corners */
+    border: 1px solid #ddd; /* Light border */
+}
+
+.search-mobile-button:hover,
+.search-mobile-button:focus,
+.search-mobile-button:focus-visible {
+    outline: none !important; 
+    box-shadow: none !important; 
+    border-color: transparent !important; 
+    background-color: inherit; 
+    color: inherit; 
+}
+
+/* Adjust icon button sizes for mobile view */
+.btn-outline-transparent {
+    padding: 0.5rem;
+}
+
+/* Ensure the card-header is correctly aligned in mobile view */
+.card-header.message-header {
+    padding: 0;
+}
+
+
 .gear-button .bi-gear {
     font-size: 1.5rem; /* Increase the font size to enlarge the icon */
 }
@@ -215,13 +305,17 @@
 /* Message */
 
 .message-header {
-    background: linear-gradient(180deg, #FF8E32 0%, #FF5400 100%);
     color: white; /* Adjust text color if needed */
 }
 
+.message-header-bg-color {
+    background: linear-gradient(180deg, #FF8E32 0%, #FF5400 100%);
+}
+
 /* Message Body Styles */
+
 .message-body {
-    max-height: 400px; /* Adjust this value as needed to fit your layout */
+    height: 40vh; /* Adjust this value as needed to fit your layout */
     overflow-y: auto; /* Makes the message area scrollable */
     background-color: #f7f7f7; /* Light grey background to match the design */
     border-radius: 0.25rem; /* Rounded corners for the container */
@@ -230,7 +324,7 @@
 .message-received .message-box,
 .message-sent .message-box {
     border-radius: 0.5rem; /* Rounded corners */
-    max-width: 45%; /* Limits width to ensure it doesn't span more than 45% of the message body */
+    width: 60%; /* Limits width to ensure it doesn't span more than 45% of the message body */
     padding: 10px; /* Adjust padding for better layout */
 }
 
@@ -348,8 +442,45 @@ textarea.form-control::-webkit-scrollbar-corner {
     background-color: transparent; 
 }
 
+/* send button */
+.send-button:hover,
+.send-button:focus,
+.send-button:focus-visible {
+    outline: none !important; 
+    box-shadow: none !important; 
+    border-color: transparent !important; 
+    background-color: inherit; 
+    color: inherit; 
+}
 
 /* Attached Files Styles */
+
+.attached-files  {
+    display: flex; /* Align items in a row */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    gap: 0.5rem; /* Space between each file badge */
+    white-space: nowrap; /* Prevent wrapping of flex items */
+    padding-bottom: 0.5rem; /* Optional: Add some bottom padding for better scrollbar appearance */
+}
+
+.attached-files::-webkit-scrollbar {
+    height: 4px; 
+}
+
+.attached-files::-webkit-scrollbar-thumb {
+    background-color: #cccccc; 
+    border-radius: 4px; 
+}
+
+.attached-files::-webkit-scrollbar-track {
+    background-color: #f7f7f7; 
+    margin-right: 8px; 
+}
+
+.attached-files::-webkit-scrollbar-corner {
+    background-color: transparent; 
+}
+
 
 .attached-file-badge {
     background-color: #FFF5EC; 
@@ -368,4 +499,9 @@ textarea.form-control::-webkit-scrollbar-corner {
 
 .btn-close:hover {
     color: #FF8E32; 
+}
+
+
+.cursor-pointer {
+    cursor: pointer;
 }

@@ -10,70 +10,135 @@
     ViewData["Inbox_Sender_Number"] = "(+63 999 444 8888)";
 }
 
-<div class="container-fluid">
-    <div class="row">
+<div class="container-fluid mt-md-4 mt-2">
+    <div class="row no-gutters">
         <!-- Sidebar -->
-        <nav class="col-md-3 d-none d-md-block sidebar p-0">
-            <div class="d-flex flex-column">
-                <a class="btn-orange border-orange btn-block mb-4 px-4 py-2 d-flex flex-row align-items-center" href="#">
-                    <img src="~/images/icons/dept.svg" alt="Logo" height="15" width="18" class="me-md-1"/>
-                    <span class="fs-5 txt-color-primary d-none d-md-inline ms-2">Department</span>
-                    <i class="ms-auto bi bi-chevron-down ms-1 bold-chevron txt-color-primary"></i>
+        <nav class="col-md-3 d-none d-md-block sidebar">
+            <ul class="navbar-nav me-3">
+                <li class="nav-item dropdown d-none d-sm-block">
+                    <a class="fs-5 nav-link text-dark d-flex align-items-center justify-content-between btn-orange border-orange py-2 px-2 px-md-4 py-md-2" href="#" id="navbarDropdownMenuLink2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="d-flex align-items-center">
+                        <img src="~/images/icons/dept.svg" height="15" width="15" alt="Department" class="d-inline-block align-top me-2 color-primary" />
+                        <span class="txt-color-primary fs-6 me-2">Department</span>
+                        </div>
+                        <i class="bi bi-chevron-down ms-1 bold-chevron txt-color-primary align-self-end"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink2">
+                        <li><a class="dropdown-item" href="#">Department 1</a></li>
+                        <li><a class="dropdown-item" href="#">Department 2</a></li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <ul class="nav flex-column mt-4">
+                <li class="nav-item">   
+                    <a class="nav-link py-2 px-4 options rounded-top d-flex align-items-center" href="/Compose">
+                        <i class="bi bi-pencil-square me-2"></i> Compose
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link py-2 px-4 options options-border d-flex align-items-center active custom-active" href="/Inbox">
+                        <i class="bi bi-envelope me-2"></i> Inbox
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link py-2 px-4 options options-border d-flex align-items-center" href="#">
+                        <i class="bi bi-arrow-right-circle me-2"></i> Sent
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link py-2 px-4 options options-border d-flex align-items-center" href="#">
+                        <i class="bi bi-arrow-up-circle me-2"></i> Outbox
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- Sidebar for Mobile View -->
+        <nav class="sidebar-mobile d-md-none">
+            <!-- Department Dropdown Button -->
+            <div class="d-flex align-items-center py-2">
+                @* <a class="btn btn-outline-orange box rounded d-flex align-items-center me-2" href="#"> *@
+                <a class="box nav-link txt-color-primary d-flex justify-content-center btn-orange border-orange"  href="#" data-bs-toggle="offcanvas" data-bs-target="#departmentOffcanvas" aria-controls="departmentOffcanvas">
+                    <img src="~/images/icons/dept.svg" alt="Department" height="16" width="16" class="d-inline-block" />
+                    <i class="fs-6 bi bi-chevron-down ms-1"></i>
                 </a>
-                <ul class="nav flex-column mt-4">
-                    <li class="nav-item">   
-                        <a class="nav-link py-2 px-4 options rounded-top d-flex align-items-center" href="/Compose">
-                            <i class="bi bi-pencil-square me-2"></i> Compose
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link py-2 px-4 options options-border d-flex align-items-center active custom-active" href="/Inbox">
-                            <i class="bi bi-envelope me-2"></i> Inbox
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link py-2 px-4 options options-border d-flex align-items-center" href="#">
-                            <i class="bi bi-arrow-right-circle me-2"></i> Sent
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link py-2 px-4 options options-border d-flex align-items-center" href="#">
-                            <i class="bi bi-arrow-up-circle me-2"></i> Outbox
-                        </a>
-                    </li>
-                </ul>
+                
+            </div>
+            
+            <!-- Icons for Mobile Sidebar -->
+            <div class="d-flex gap-2 justify-content-end">
+                <a class="box bg-orange-light d-flex align-items-center justify-content-center p-2" href="/Compose">
+                    <i class="bi bi-pencil-square"></i>
+                </a>
+                <a class="box bg-orange d-flex align-items-center justify-content-center p-2 active" href="/Inbox">
+                    <i class="bi bi-envelope"></i>
+                </a>
+                <a class="box bg-orange-light d-flex align-items-center justify-content-center p-2" href="/Inbox">
+                    <i class="bi bi-arrow-right-circle"></i>
+                </a>
+                <a class="box bg-orange-light d-flex align-items-center justify-content-center p-2" href="/Inbox">
+                    <i class="bi bi-arrow-up-circle"></i>
+                </a>
             </div>
         </nav>
 
+        <div class="offcanvas offcanvas-bottom" tabindex="-2" id="departmentOffcanvas" aria-labelledby="departmentOffcanvasLabel">
+            <div class="offcanvas-body">
+                <ul class="navbar-nav">
+                    <li><a class="nav-link txt-color-secondary" href="#">Department 1</a></li>
+                    <li><a class="nav-link txt-color-secondary" href="#">Department 2</a></li>
+                </ul>
+            </div>
+        </div>
         <!-- Main Content -->
-        <main class="col-md-9 ms-sm-auto col-lg-9 ps-md-4 message-compose">
-            <div class="mb-4  d-flex flex-row align-items-center justify-content-between">
-                <h1 class="h3 fw-normal">INBOX</h1>
-                <a class="btn-orange border-orange txt-color-primary px-4 py-2" href="#">Export File</a>
+        <main class="col-md-9 ms-sm-auto col-lg-9 ps-md-4 message-compose px-md-4">
+            <div class="mb-md-4 d-flex align-items-center justify-content-between">
+                <h1 class="h3 fw-normal d-none d-md-block">INBOX</h1>
+                <a class="d-none d-md-block btn-orange border-orange txt-color-primary px-4 py-2" href="#">Export File</a>
+                <a class="export-file-link-mobile d-md-none txt-color-primary text-end" href="#">Export File</a>
             </div>
 
             <div class="card">
-                <div class="card-header message-header d-flex justify-content-between align-items-center">
-                    <div class="d-flex align-items-center px-4 py-2">
-                        <span class="fs-4 fw-bold me-4">@ViewData["Inbox_Sender_Name"]</span>
-                        <span class="pt-1 ms-2">@ViewData["Inbox_Sender_Number"]</span>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        <!-- Search Bar -->
-                        <div class="input-group search-container">
-                            <span class="input-group-text bg-white border-0 rounded-start" id="search-icon">
-                                <i class="bi bi-search"></i>
-                            </span>
+                <div class="card-header px-0 py-0">
+                    <!-- Sender Info -->
+                    <div class="txt-color-primary-alt message-header-bg-color message-header d-flex justify-content-between flex-column flex-md-row">
+                        <div class="d-flex justify-content-between w-200 p-2 px-md-4 px-4 py-2">
+                            <div class="d-flex flex-column flex-md-row align-items-md-center">
+                                <span class="d-none d-md-inline fs-4 me-md-4">@ViewData["Inbox_Sender_Name"]</span>
+                                <!-- Show this element only on mobile (xs and sm screens) -->
+                                <span class="d-md-none fs-5 me-md-4">@ViewData["Inbox_Sender_Name"]</span>
+                                <span class="fs-6">@ViewData["Inbox_Sender_Number"]</span>
+                            </div>
+                            <!-- Icons for search and settings in mobile view -->
+                            <div class="d-md-none d-flex align-items-center justify-content-end">
+                                <button class="search-mobile-button btn p-0 me-3" type="button" onclick="toggleSearchBarMobile()">
+                                    <i class="bi bi-search fs-5 txt-color-primary-alt"></i>
+                                </button>
+                                <button class="btn p-0" type="button">
+                                    <i class="bi bi-gear fs-5 txt-color-primary-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Search and settings for desktop view -->
+                        <div class="d-none d-md-flex align-items-center px-md-4 py-md-1">
+                            <div class="input-group search-container">
+                                <span class="input-group-text bg-white border-0 rounded-start" id="search-icon">
+                                    <i class="bi bi-search"></i>
+                                </span>
                             <input type="text" class="form-control rounded-end py-1" placeholder="Search" aria-label="Search" aria-describedby="search-icon">
-                            <button class="btn btn-outline-transparent txt-color-primary-alt  ms-2 gear-button" type="button">
-                                <i class="bi bi-gear"></i>
-                            </button>
+                                <button class="btn btn-outline-transparent txt-color-primary-alt ms-2 gear-button" type="button">
+                                    <i class="bi bi-gear"></i>
+                                </button>
+                            </div>   
                         </div>
                     </div>
+
+                    <!-- Search bar for mobile view, hidden by default -->
+                    <div id="mobileSearchContainer" class="w-100"></div>
                 </div>
-                <div class="card-body py-0 ps-0 pe-1">
+                <div class="card-body py-0 ps-0 pe-1 message-body-parent">
                     <!-- Message Thread - Received -->
-                    <div id="messageBody" class="message-body my-0 mx-0 pe-3">
+                    <div id="messageBody" class="message-body pt-4 my-0 mx-0 pe-3">
                         @for (int i = 0; i < Model.Messages.Count; i++)
                         {
                             var message = Model.Messages[i];
@@ -114,48 +179,128 @@
 
             <!-- Message Input -->
             <div class="mt-4">
-                <label class="form-label txt-color-primary mb-2">Use Template</label>
-                <div class="input-group rounded border px-3 py-2">
-                    <!-- Icons for attachments and audio -->
-                    <span class="input-group-text bg-white border-0">
-                        <i class="bi bi-paperclip txt-color-primary fs-5"></i>
-                    </span>
-                    <span class="input-group-text bg-white border-0">
-                        <i class="bi bi-mic txt-color-primary fs-5"></i>
-                    </span>
+                <label class="form-label txt-color-primary mb-2 cursor-pointer" onchange="useTemplate()">
+                    Use Template
+                    </label>
+                <form method="post" enctype="multipart/form-data">
+                    <div class="input-group rounded border px-3 py-2">
+                        <label class="input-group-text bg-white border-0 cursor-pointer">
+                            <input type="file" name="files" multiple hidden accept=".pdf, .doc, .docx, .xls, .xlsx, .txt" onchange="displayUploadedFiles(this)">
+                            <i class="bi bi-paperclip txt-color-primary fs-5"></i>
+                        </label>
 
-                    <!-- Text area for entering message -->
-                    <textarea class="form-control border-0" placeholder="Enter your message" aria-label="Enter your message"></textarea>
+                        <label class="input-group-text bg-white border-0 cursor-pointer">
+                            <input type="file" name="audioFiles" multiple hidden accept="audio/*" onchange="displayUploadedFiles(this)">
+                            <i class="bi bi-mic txt-color-primary fs-5"></i>
+                        </label>
 
-                    <!-- Send button styled as an icon -->
-                    <button class="btn btn-orange" type="button">
-                        <i class="bi bi-send txt-color-primary"></i>
-                    </button>
-                </div>
+                        <textarea class="form-control border-0" placeholder="Enter your message" aria-label="Enter your message"></textarea>
 
-                <!-- Attached Files -->
-                <div class="attached-files mt-3 d-flex flex-wrap gap-2">
-                    <span class="bg-orange-light text-black px-3 py-2 attached-file-badge d-flex align-items-center">
-                        <i class="bi bi-file-earmark-text-fill me-2"></i> File 1.pdf
-                        <button type="button" class="btn-close ms-2" aria-label="Remove"></button>
-                    </span>
-                    <span class="bg-orange-light text-black px-3 py-2 attached-file-badge d-flex align-items-center">
-                        <i class="bi bi-file-earmark-text-fill me-2"></i> File 2.pdf
-                        <button type="button" class="btn-close ms-2" aria-label="Remove"></button>
-                    </span>
-                    <span class="bg-orange-light text-black px-3 py-2 attached-file-badge d-flex align-items-center">
-                        <i class="bi bi-file-earmark-text-fill me-2"></i> File 3.pdf
-                        <button type="button" class="btn-close ms-2" aria-label="Remove"></button>
-                    </span>
+                        <button class="btn btn-orange send-button" type="button">
+                            @* <i class="bi bi-send txt-color-primary"></i> *@
+                            <img src="~/images/icons/send.svg" alt="Logo" height="20" width="20" class="me-md-1"/>
+                        </button>
+                    </div>
+                </form>
+
+                <div class="attached-files mt-3">
+                    @foreach (var file in Model.UploadedFiles)
+                    {
+                        <span class="attached-file-badge d-flex align-items-center">
+                            <i class="bi bi-file-earmark-text-fill me-2"></i> @file.FileName
+                            <button type="button" class="btn-close ms-2" aria-label="Remove"></button>
+                        </span>
+                    }
                 </div>
             </div>
        </main>
     </div>
 </div>
-
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         var messageBody = document.getElementById("messageBody");
         messageBody.scrollTop = messageBody.scrollHeight;
     });
+    let isSearchBarVisible = false; // Flag to track the visibility of the search bar
+
+    function toggleSearchBarMobile() {
+        const mobileSearchContainer = document.getElementById('mobileSearchContainer');
+
+        if (!isSearchBarVisible) {
+            // Add the search bar dynamically
+            mobileSearchContainer.innerHTML = `
+                <div class="d-md-none search-bar-mobile d-flex align-items-center w-100 px-3 py-2 hidden">
+                    <input type="text" class="form-control py-1" placeholder="Search Conversation" aria-label="Search" id="searchInputMobile" onblur="hideSearchBarMobile()">
+                </div>
+            `;
+            isSearchBarVisible = true; // Update the flag
+
+            // Add an event listener for blur event to hide search bar on losing focus
+            document.getElementById('searchInputMobile').addEventListener('blur', removeSearchBarMobile);
+
+        } else {
+            removeSearchBarMobile();
+        }
+    }
+
+    function removeSearchBarMobile() {
+        const mobileSearchContainer = document.getElementById('mobileSearchContainer');
+        mobileSearchContainer.innerHTML = ''; // Clear the content to remove the search bar
+        isSearchBarVisible = false; // Update the flag
+    }
+
+    function useTemplate(){
+        console.log("Use template clicked!");
+    }
+
+    function displayUploadedFiles(input) {
+        const files = input.files;
+        const container = document.querySelector('.attached-files');
+
+        for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            const fileType = file.type; 
+            const fileName = file.name;
+            const fileExtension = fileName.split('.').pop().toLowerCase();
+
+            let fileIcon = getFileIcon(fileExtension);
+
+            const fileBadge = document.createElement('span');
+            fileBadge.classList.add('bg-orange-light', 'text-black', 'px-3', 'py-2', 'attached-file-badge', 'd-flex', 'align-items-center');
+            
+            fileBadge.innerHTML = `
+                <i class="${fileIcon} me-2"></i> ${fileName}
+                <button type="button" class="btn-close ms-2" aria-label="Remove" onclick="removeFile(this)"></button>
+            `;
+            container.appendChild(fileBadge);
+        }
+    }
+
+
+    function getFileIcon(extension) {
+        switch (extension) {
+            case 'pdf':
+                return 'bi bi-file-earmark-pdf';
+            case 'doc':
+            case 'docx':
+                return 'bi bi-file-earmark-word';
+            case 'xls':
+            case 'xlsx':
+                return 'bi bi-file-earmark-spreadsheet';
+            case 'txt':
+                return 'bi bi-file-earmark-text';
+            case 'mp3':
+            case 'wav':
+            case 'ogg':
+                return 'bi bi-file-earmark-music';
+            default:
+                return 'bi bi-file-earmark';
+        }
+    }
+
+    function removeFile(button) {
+        const fileBadge = button.closest('span');
+        fileBadge.remove();
+    }
+
 </script>

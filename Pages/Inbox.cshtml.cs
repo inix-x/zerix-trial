@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Http; 
 
 namespace zerix_trial.Pages
 {
@@ -24,6 +25,9 @@ namespace zerix_trial.Pages
 
         // List of messages to display
         public List<Message> Messages { get; set; } = new List<Message>();
+
+        [BindProperty]
+        public List<IFormFile> UploadedFiles { get; set; } = new List<IFormFile>();
 
         public void OnGet()
         {
@@ -49,6 +53,19 @@ namespace zerix_trial.Pages
             Messages.Add(new Message { Timestamp = "1:41 AM", SentMethod = "Via SMS", Content = "We'll cover project updates, upcoming deadlines, and brainstorming ideas for the new campaign. Hope to see you all there!\n\nCheers,\nAna", IsSent = false });
             Messages.Add(new Message { Timestamp = "1:42 AM", SentMethod = "Via SMS", Content = "This is noted, Miss Ana!", IsSent = true });
             // Add more sample messages as needed
+        }
+        public IActionResult OnPostUploadFiles(List<IFormFile> files)
+        {
+            if (files != null && files.Count > 0)
+            {
+                foreach (var file in files)
+                {
+                    UploadedFiles.Add(file);
+                }
+            }
+            
+            // Redirect to Get request to reset form state
+            return RedirectToPage();
         }
     }
 }
