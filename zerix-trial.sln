@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "zerix-trial", "zerix-trial.csproj", "{521884E4-6551-49C4-923C-3C38C1DD69B6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{521884E4-6551-49C4-923C-3C38C1DD69B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{521884E4-6551-49C4-923C-3C38C1DD69B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{521884E4-6551-49C4-923C-3C38C1DD69B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{521884E4-6551-49C4-923C-3C38C1DD69B6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1C37B7A1-901C-4C3D-9C6A-AD031A551A39}
+	EndGlobalSection
+EndGlobal

@@ -5,14 +5,14 @@ using Microsoft.AspNetCore.Http;
 
 namespace zerix_trial.Pages;
 
-public class ComposeModel : PageModel
+public class IndexModel : PageModel
 {
     [BindProperty]
     public List<IFormFile> UploadedFiles { get; set; } = new List<IFormFile>();
 
-    private readonly ILogger<ComposeModel> _logger;
+    private readonly ILogger<IndexModel> _logger;
 
-    public ComposeModel(ILogger<ComposeModel> logger)
+    public IndexModel(ILogger<IndexModel> logger)
     {
         _logger = logger;
     }
