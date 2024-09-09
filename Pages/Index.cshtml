@@ -65,17 +65,17 @@
             
             <!-- Icons for Mobile Sidebar -->
             <div class="d-flex gap-2 justify-content-end">
-                <a class="box bg-orange-light d-flex align-items-center justify-content-center p-2 active" href="/">
-                    <i class="bi bi-pencil-square"></i>
+                <a class="box item bg-orange-light d-flex align-items-center justify-content-center p-2 active" href="/">
+                    <img src="~/images/icons/edit-active.svg" height="24" width="24" alt="Compose" class="d-inline-block" />
                 </a>
-                <a class="box bg-orange d-flex align-items-center justify-content-center p-2 " href="/Inbox">
-                    <i class="bi bi-envelope"></i>
+                <a class="box item bg-orange d-flex align-items-center justify-content-center p-2 " href="/Inbox">
+                    <img src="~/images/icons/mail-orange.svg" height="24" width="24" alt="Inbox" class="d-inline-block" />
                 </a>
-                <a class="box bg-orange-light d-flex align-items-center justify-content-center p-2" href="/Inbox">
-                    <i class="bi bi-arrow-right-circle"></i>
+                <a class="box item bg-orange-light d-flex align-items-center justify-content-center p-2" href="#">
+                    <img src="~/images/icons/sent.svg" height="24" width="24" alt="Sent" class="d-inline-block" />
                 </a>
-                <a class="box bg-orange-light d-flex align-items-center justify-content-center p-2" href="/Inbox">
-                    <i class="bi bi-arrow-up-circle"></i>
+                <a class="box item bg-orange-light d-flex align-items-center justify-content-center p-2" href="#">
+                    <img src="~/images/icons/outbox.svg" height="24" width="24" alt="Outbox" class="d-inline-block" />
                 </a>
             </div>
         </nav>
@@ -110,13 +110,13 @@
                         <div class="input-group d-none d-md-flex">
                             <!-- Recipient Pills (Using Badges to Represent Pills) -->
                             <div class="form-control recipients d-flex flex-wrap me-3 border rounded">
-                                <span class="badge bg-secondary ff-microsoft-sans-serif mx-2 d-flex align-items-center rounded-pill ">Ethan Patel
+                                <span class="badge badge-color ff-microsoft-sans-serif mx-2 d-flex align-items-center rounded-pill fw-400">Ethan Patel
                                     <button type="button" class="recipients btn-close btn-close-white ms-2" aria-label="Remove"></button>
                                 </span>
-                                <span class="badge bg-secondary ff-microsoft-sans-serif mx-2 d-flex align-items-center rounded-pill">Liam Garcia
+                                <span class="badge badge-color ff-microsoft-sans-serif mx-2 d-flex align-items-center rounded-pill fw-400">Liam Garcia
                                     <button type="button" class="recipients btn-close btn-close-white ms-2" aria-label="Remove"></button>
                                 </span>
-                                <span class="badge bg-secondary ff-microsoft-sans-serif mx-2 d-flex align-items-center rounded-pill">Sophia Kim
+                                <span class="badge badge-color ff-microsoft-sans-serif mx-2 d-flex align-items-center rounded-pill fw-400">Sophia Kim
                                     <button type="button" class="recipients btn-close btn-close-white ms-2" aria-label="Remove"></button>
                                 </span>
                             </div>
@@ -131,18 +131,18 @@
                         <div class="input-group d-md-none">
                             <div class="form-control recipients d-flex flex-row justify-content-between">
                                 <div class="d-flex flex-row">
-                                    <span class="badge bg-secondary mx-2 d-flex align-items-center rounded-pill ">Ethan Patel
+                                    <span class="badge badge-color mx-2 d-flex align-items-center rounded-pill ">Ethan Patel
                                         <button type="button" class="recipients btn-close btn-close-white ms-2" aria-label="Remove"></button>
                                     </span>
-                                    <span class="badge bg-secondary mx-2 d-flex align-items-center rounded-pill">Liam Garcia
+                                    <span class="badge badge-color mx-2 d-flex align-items-center rounded-pill">Liam Garcia
                                         <button type="button" class="recipients btn-close btn-close-white ms-2" aria-label="Remove"></button>
                                     </span>
-                                    <span class="badge bg-secondary mx-2 d-flex align-items-center rounded-pill">Sophia Kim
+                                    <span class="badge badge-color mx-2 d-flex align-items-center rounded-pill">Sophia Kim
                                         <button type="button" class="recipients btn-close btn-close-white ms-2" aria-label="Remove"></button>
                                     </span>
                                 </div>
-                                <button class="btn btn-custom txt-color-primary border-orange px-1 py-0" type="button">
-                                    <i class="bi bi-plus"></i> <!-- Replace this with the desired plus icon -->
+                                <button class="btn btn-custom txt-color-primary px-0 py-0" type="button">
+                                    <img src="~/images/icons/add-contacts.svg" alt="Logo" height="32" width="32" class=""/>
                                 </button>
                             </div>
                         </div>
@@ -170,9 +170,11 @@
 
                             <label class="compose input-group-text bg-white border-0 cursor-pointer">
                                 <input type="button" name="audioFiles" multiple hidden accept="audio/*" onchange="">
-                                <img src="~/images/icons/audio-mobile.svg" height="20" width="20" alt="Inbox" class="d-inline-block me-2" />
+                                <img src="~/images/icons/audio-mobile.svg" height="20" width="20" alt="Inbox" class="d-inline-block me-2 d-md-none" />
+                                <i class="bi bi-mic txt-color-primary fs-5 d-none d-md-inline-block"></i>
                                 <span class="d-none d-md-block mx-0 mx-md-2 txt-color-primary">Voice-to-Text</span>
                             </label>
+
                         </div>
 
                         <!-- Schedule Sending and Send Button -->
@@ -254,18 +256,23 @@
     function displayUploadedFiles(input) {
         const files = input.files;
         const container = document.querySelector('.attached-files');
+        const noFilesMessage = document.getElementById('no-files-attached');
+
+        if (files.length > 0 && noFilesMessage) {
+            noFilesMessage.classList.remove('d-md-flex')
+            console.log(noFilesMessage.style);
+        }
 
         for (let i = 0; i < files.length; i++) {
             const file = files[i];
-            const fileType = file.type; 
             const fileName = file.name;
             const fileExtension = fileName.split('.').pop().toLowerCase();
-
+            
             let fileIcon = getFileIcon(fileExtension);
 
             const fileBadge = document.createElement('span');
             fileBadge.classList.add('bg-orange-light', 'text-black', 'px-3', 'py-2', 'attached-file-badge', 'd-flex', 'align-items-center');
-            
+
             fileBadge.innerHTML = `
                 <i class="${fileIcon} me-2"></i> ${fileName}
                 <button type="button" class="btn-close ms-2" aria-label="Remove" onclick="removeFile(this)"></button>
@@ -299,6 +306,18 @@
     function removeFile(button) {
         const fileBadge = button.closest('span');
         fileBadge.remove();
+    }
+
+    function removeFile(button) {
+        const fileBadge = button.closest('span.attached-file-badge');
+        fileBadge.remove();
+
+        const container = document.querySelector('.attached-files');
+        const noFilesMessage = document.getElementById('no-files-attached');
+
+        if (container.querySelectorAll('.attached-file-badge').length === 0 && noFilesMessage) {
+            noFilesMessage.classList.add('d-md-flex');
+        }
     }
 
     function toggleDateTimePicker() {
